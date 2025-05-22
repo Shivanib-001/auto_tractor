@@ -8,17 +8,17 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="0.031182 -0.78282 0.20496"
+        xyz="-0.39771 -0.028882 -0.025607"
         rpy="0 0 0" />
       <mass
-        value="2950" />
+        value="2890" />
       <inertia
-        ixx="740.47"
-        ixy="122.61"
-        ixz="356.75"
-        iyy="4136.6"
-        iyz="-27.39"
-        izz="3964.9" />
+        ixx="1.6045"
+        ixy="-0.017928"
+        ixz="0.049063"
+        iyy="2.1845"
+        iyz="-0.31498"
+        izz="2.9565" />
     </inertial>
     <visual>
       <origin
@@ -45,20 +45,20 @@
     </collision>
   </link>
   <link
-    name="Front_Left">
+    name="Front_left">
     <inertial>
       <origin
-        xyz="0.031182 -0.78282 0.20496"
+        xyz="3.1563E-05 0.00069008 1.9321E-05"
         rpy="0 0 0" />
       <mass
-        value="80" />
+        value="100" />
       <inertia
-        ixx="740.47"
-        ixy="122.61"
-        ixz="356.75"
-        iyy="4136.6"
-        iyz="-27.39"
-        izz="3964.9" />
+        ixx="8.5259E-05"
+        ixy="5.3135E-07"
+        ixz="1.3914E-08"
+        iyy="1.6562E-05"
+        iyz="-1.799E-06"
+        izz="8.5216E-05" />
     </inertial>
     <visual>
       <origin
@@ -66,12 +66,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Front_Left.STL" />
+          filename="package://auto_tractor/meshes/Front_left.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.33333 0.6902 1 1" />
+          rgba="0.4 0.4 0.4 1" />
       </material>
     </visual>
     <collision>
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Front_Left.STL" />
+          filename="package://auto_tractor/meshes/Front_left.STL" />
       </geometry>
     </collision>
   </link>
@@ -88,30 +88,30 @@
     name="FL"
     type="continuous">
     <origin
-      xyz="0.91935 -0.78962 -0.29152"
-      rpy="0.33919 0.0051747 -0.016201" />
+      xyz="0.92099 -0.63407 -0.53606"
+      rpy="0.34375 0 0" />
     <parent
       link="base_link" />
     <child
-      link="Front_Left" />
+      link="Front_left" />
     <axis
       xyz="0 1 0" />
   </joint>
   <link
-    name="Front_Right">
+    name="Front_right">
     <inertial>
       <origin
-        xyz="0.031182 -0.78282 0.20496"
+        xyz="-6.8775E-05 -0.00066764 -4.8204E-05"
         rpy="0 0 0" />
       <mass
-        value="80" />
+        value="100" />
       <inertia
-        ixx="740.47"
-        ixy="122.61"
-        ixz="356.75"
-        iyy="4136.6"
-        iyz="-27.39"
-        izz="3964.9" />
+        ixx="8.5259E-05"
+        ixy="-5.3135E-07"
+        ixz="1.3914E-08"
+        iyy="1.6562E-05"
+        iyz="1.799E-06"
+        izz="8.5216E-05" />
     </inertial>
     <visual>
       <origin
@@ -119,12 +119,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Front_Right.STL" />
+          filename="package://auto_tractor/meshes/Front_right.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.33333 0.6902 1 1" />
+          rgba="0.4 0.4 0.4 1" />
       </material>
     </visual>
     <collision>
@@ -133,7 +133,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Front_Right.STL" />
+          filename="package://auto_tractor/meshes/Front_right.STL" />
       </geometry>
     </collision>
   </link>
@@ -141,30 +141,30 @@
     name="FR"
     type="continuous">
     <origin
-      xyz="0.92252 0.76364 -0.29088"
-      rpy="0.33919 0.0051747 -0.016201" />
+      xyz="0.92109 0.83018 -0.011833"
+      rpy="0.34375 0 0" />
     <parent
       link="base_link" />
     <child
-      link="Front_Right" />
+      link="Front_right" />
     <axis
       xyz="0 1 0" />
   </joint>
   <link
-    name="Rear_Left">
+    name="Rear_left">
     <inertial>
       <origin
-        xyz="0.031182 -0.78282 0.20496"
+        xyz="8.3356E-05 0.093454 -0.00017878"
         rpy="0 0 0" />
       <mass
-        value="120" />
+        value="100" />
       <inertia
-        ixx="740.47"
-        ixy="122.61"
-        ixz="356.75"
-        iyy="4136.6"
-        iyz="-27.39"
-        izz="3964.9" />
+        ixx="0.00015156"
+        ixy="2.284E-09"
+        ixz="1.9499E-14"
+        iyy="1.8396E-05"
+        iyz="-1.137E-09"
+        izz="0.00015156" />
     </inertial>
     <visual>
       <origin
@@ -172,7 +172,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Rear_Left.STL" />
+          filename="package://auto_tractor/meshes/Rear_left.STL" />
       </geometry>
       <material
         name="">
@@ -186,7 +186,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Rear_Left.STL" />
+          filename="package://auto_tractor/meshes/Rear_left.STL" />
       </geometry>
     </collision>
   </link>
@@ -194,30 +194,30 @@
     name="RL"
     type="continuous">
     <origin
-      xyz="-1.3467 -0.78264 -0.10971"
-      rpy="0.33919 0.0051747 -0.016201" />
+      xyz="-1.3428 -0.81744 -0.40911"
+      rpy="0.34375 0 0" />
     <parent
       link="base_link" />
     <child
-      link="Rear_Left" />
+      link="Rear_left" />
     <axis
       xyz="0 1 0" />
   </joint>
   <link
-    name="Rear_Right">
+    name="Rear_right">
     <inertial>
       <origin
-        xyz="0.031182 -0.78282 0.20496"
+        xyz="3.3321E-05 -0.020028 -1.895E-05"
         rpy="0 0 0" />
       <mass
-        value="120" />
+        value="100" />
       <inertia
-        ixx="740.47"
-        ixy="122.61"
-        ixz="356.75"
-        iyy="4136.6"
-        iyz="-27.39"
-        izz="3964.9" />
+        ixx="0.00015156"
+        ixy="-1.2411E-13"
+        ixz="8.4972E-20"
+        iyy="1.8396E-05"
+        iyz="3.1117E-17"
+        izz="0.00015156" />
     </inertial>
     <visual>
       <origin
@@ -225,7 +225,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Rear_Right.STL" />
+          filename="package://auto_tractor/meshes/Rear_right.STL" />
       </geometry>
       <material
         name="">
@@ -239,7 +239,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://auto_tractor/meshes/Rear_Right.STL" />
+          filename="package://auto_tractor/meshes/Rear_right.STL" />
       </geometry>
     </collision>
   </link>
@@ -247,12 +247,12 @@
     name="RR"
     type="continuous">
     <origin
-      xyz="-1.341 0.80939 -0.10956"
-      rpy="0.33919 0.0051747 -0.016201" />
+      xyz="-1.3428 0.8161 0.17548"
+      rpy="0.34375 -0.00020469 -7.3256E-05" />
     <parent
       link="base_link" />
     <child
-      link="Rear_Right" />
+      link="Rear_right" />
     <axis
       xyz="0 1 0" />
   </joint>
