@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="auto_tractor">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.397730123214809 -0.0358516712632489 -0.014368509614521"
+        rpy="0 0 0" />
+      <mass
+        value="2890" />
+      <inertia
+        ixx="728.156306539282"
+        ixy="-356.818218316549"
+        ixz="134.309415252555"
+        iyy="3882.4531576663"
+        iyz="27.8922747620931"
+        izz="4051.57184651127" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Front_left">
+    <inertial>
+      <origin
+        xyz="-0.39773 -0.035852 -0.014369"
+        rpy="0 0 0" />
+      <mass
+        value="2890" />
+      <inertia
+        ixx="728.16"
+        ixy="-356.82"
+        ixz="134.31"
+        iyy="3882.5"
+        iyz="27.892"
+        izz="4051.6" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Front_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Front_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL"
+    type="continuous">
+    <origin
+      xyz="0.92106 -0.77764 -0.29107"
+      rpy="0.05236 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_left" />
+    <axis
+      xyz="-0.0077993 0.99963 -0.026196" />
+  </joint>
+  <link
+    name="Front_right">
+    <inertial>
+      <origin
+        xyz="-0.39773 -0.035852 -0.014369"
+        rpy="0 0 0" />
+      <mass
+        value="2890" />
+      <inertia
+        ixx="728.16"
+        ixy="-356.82"
+        ixz="134.31"
+        iyy="3882.5"
+        iyz="27.892"
+        izz="4051.6" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Front_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Front_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR"
+    type="continuous">
+    <origin
+      xyz="0.92111 0.77762 -0.29104"
+      rpy="-0.05236 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_right" />
+    <axis
+      xyz="-0.0077313 -0.99963 -0.026176" />
+  </joint>
+  <link
+    name="Rear_left">
+    <inertial>
+      <origin
+        xyz="-0.39773 -0.035852 -0.014369"
+        rpy="0 0 0" />
+      <mass
+        value="2890" />
+      <inertia
+        ixx="728.16"
+        ixy="-356.82"
+        ixz="134.31"
+        iyy="3882.5"
+        iyz="27.892"
+        izz="4051.6" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Rear_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.61961 0.83137 0.81961 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Rear_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL"
+    type="continuous">
+    <origin
+      xyz="-1.3427 -0.8025 -0.10985"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_left" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Rear_right">
+    <inertial>
+      <origin
+        xyz="-0.39773 -0.035852 -0.014369"
+        rpy="0 0 0" />
+      <mass
+        value="2890" />
+      <inertia
+        ixx="728.16"
+        ixy="-356.82"
+        ixz="134.31"
+        iyy="3882.5"
+        iyz="27.892"
+        izz="4051.6" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Rear_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://auto_tractor/meshes/Rear_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR"
+    type="continuous">
+    <origin
+      xyz="-1.3427 0.8025 -0.10985"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_right" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>
