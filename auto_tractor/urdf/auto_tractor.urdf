@@ -96,6 +96,11 @@
       link="Front_left" />
     <axis
       xyz="-0.0077993 0.99963 -0.026196" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100000"
+      velocity="1" />
   </joint>
   <link
     name="Front_right">
@@ -149,6 +154,11 @@
       link="Front_right" />
     <axis
       xyz="-0.0077313 -0.99963 -0.026176" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100000"
+      velocity="1" />
   </joint>
   <link
     name="Rear_left">
@@ -202,6 +212,11 @@
       link="Rear_left" />
     <axis
       xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100000"
+      velocity="1" />
   </joint>
   <link
     name="Rear_right">
@@ -255,6 +270,11 @@
       link="Rear_right" />
     <axis
       xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="100000"
+      velocity="1" />
   </joint>
 
   <gazebo reference="base_link">
@@ -460,4 +480,52 @@
       </plugin>
     </sensor>
   </gazebo>
+  
+  <!-- <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
+  </gazebo> -->
+
+  <!-- <transmission name="vel_trans_wheel_fl">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel_front_left_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="vel_trans_wheel_fr">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel_front_right_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="vel_trans_wheel_rl">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel_rear_left_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="vel_trans_wheel_rr">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wheel_rear_right_motor">
+      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
 </robot>

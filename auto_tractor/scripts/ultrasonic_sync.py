@@ -27,11 +27,11 @@ class UltrasonicGUI:
         self.title_label = tk.Label(root, text="Ultrasonic Sensor Dashboard", bg="#1e1e1e", fg="#00ffff", font=("Segoe UI", 17, "bold"))
         self.title_label.pack(pady=10)
 
-        self.fl_label = tk.Label(root, text="Front Left: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#00ff00")
-        self.fr_label = tk.Label(root, text="Front Right: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#00ff00")
-        self.ml_label = tk.Label(root, text="Middle Left: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#00ff00")
-        self.mr_label = tk.Label(root, text="Middle Right: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#00ff00")
-        self.pos_label = tk.Label(root, text="Point Position: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#00ff00")
+        self.fl_label = tk.Label(root, text="Front Left: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#f1ff71")
+        self.fr_label = tk.Label(root, text="Front Right: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#f1ff71")
+        self.ml_label = tk.Label(root, text="Middle Left: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#f1ff71")
+        self.mr_label = tk.Label(root, text="Middle Right: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#f1ff71")
+        self.pos_label = tk.Label(root, text="Point Position: --", font=("Segoe UI", 18),bg="#1e1e1e", fg="#f1ff71")
 
         self.fl_label.pack(pady=5)
         self.fr_label.pack(pady=5)

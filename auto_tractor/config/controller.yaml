@@ -1,0 +1,15 @@
+fl_velocity:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "FL"
+
+fr_velocity:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "FR"
+
+rl_velocity:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "RL"
+
+rr_velocity:
+  type: "velocity_controllers/JointVelocityController"
+  joint: "RR"
