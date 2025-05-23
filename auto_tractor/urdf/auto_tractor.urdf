@@ -8,7 +8,7 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="-0.397730123214809 -0.0358516712632489 -0.014368509614521"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="2890" />
@@ -302,7 +302,7 @@
   <joint name="ultrasonic_joint" type="fixed">
     <parent link="base_link"/>
     <child link="ultrasonic_link"/>
-    <origin xyz="1.8 0 0.1" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
 
@@ -312,21 +312,21 @@
     <sensor type="ray" name="ultrasonic_fl">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>0 -0.26 0.1 0 0 0</pose>
+      <pose>1.386 -0.15525 0.62525 0 0 -0.65079</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
           <horizontal>
-            <samples>71</samples>
+            <samples>70</samples>
             <resolution>1</resolution>
             <min_angle>-1.22173</min_angle>
             <max_angle>1.22173</max_angle>
           </horizontal>
           <vertical>
-            <samples>36</samples>
+            <samples>35</samples>
             <resolution>1</resolution>
-            <min_angle>-0.2</min_angle>
-            <max_angle>0.611</max_angle>
+            <min_angle>-0.610865</min_angle>
+            <max_angle>0.610865</max_angle>
           </vertical>
         </scan>
         <range>
@@ -351,21 +351,21 @@
     <sensor type="ray" name="ultrasonic_fr">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>0 0.26 0.1 0 0 0</pose>
+      <pose>1.386 0.15525 0.62525 0 0 0.65079</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
           <horizontal>
-            <samples>71</samples>
+            <samples>70</samples>
             <resolution>1</resolution>
             <min_angle>-1.22173</min_angle>
             <max_angle>1.22173</max_angle>
           </horizontal>
           <vertical>
-            <samples>36</samples>
+            <samples>35</samples>
             <resolution>1</resolution>
-            <min_angle>-0.2</min_angle>
-            <max_angle>0.611</max_angle>
+            <min_angle>-0.610865</min_angle>
+            <max_angle>0.610865</max_angle>
           </vertical>
         </scan>
         <range>
@@ -390,21 +390,21 @@
     <sensor type="ray" name="ultrasonic_ml">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>-0.45 -0.29 0.27 0 0 -1.5708</pose>
+      <pose>0.57286 -0.3473 0.638 0 0 -1.5708</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
           <horizontal>
-            <samples>71</samples>
+            <samples>70</samples>
             <resolution>1</resolution>
             <min_angle>-1.22173</min_angle>
             <max_angle>1.22173</max_angle>
           </horizontal>
           <vertical>
-            <samples>36</samples>
+            <samples>35</samples>
             <resolution>1</resolution>
-            <min_angle>-0.1</min_angle>
-            <max_angle>0.611</max_angle>
+            <min_angle>-0.610865</min_angle>
+            <max_angle>0.610865</max_angle>
           </vertical>
         </scan>
         <range>
@@ -429,21 +429,21 @@
     <sensor type="ray" name="ultrasonic_mr">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>-0.45 0.29 0.27 0 0 1.5708</pose>
+      <pose>0.57286 0.3473 0.638 0 0 1.5708</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
           <horizontal>
-            <samples>71</samples>
+            <samples>70</samples>
             <resolution>1</resolution>
             <min_angle>-1.22173</min_angle>
             <max_angle>1.22173</max_angle>
           </horizontal>
           <vertical>
-            <samples>36</samples>
+            <samples>35</samples>
             <resolution>1</resolution>
-            <min_angle>-0.1</min_angle>
-            <max_angle>0.611</max_angle>
+            <min_angle>-0.610865</min_angle>
+            <max_angle>0.610865</max_angle>
           </vertical>
         </scan>
         <range>
