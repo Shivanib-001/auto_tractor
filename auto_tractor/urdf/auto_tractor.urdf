@@ -84,6 +84,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="FL"
     type="continuous">
@@ -96,12 +97,8 @@
       link="Front_left" />
     <axis
       xyz="-0.0077993 0.99963 -0.026196" />
-    <limit
-      lower="0"
-      upper="0"
-      effort="100000"
-      velocity="1" />
   </joint>
+
   <link
     name="Front_right">
     <inertial>
@@ -142,6 +139,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="FR"
     type="continuous">
@@ -154,12 +152,8 @@
       link="Front_right" />
     <axis
       xyz="-0.0077313 -0.99963 -0.026176" />
-    <limit
-      lower="0"
-      upper="0"
-      effort="100000"
-      velocity="1" />
   </joint>
+
   <link
     name="Rear_left">
     <inertial>
@@ -200,6 +194,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="RL"
     type="continuous">
@@ -212,12 +207,8 @@
       link="Rear_left" />
     <axis
       xyz="0 1 0" />
-    <limit
-      lower="0"
-      upper="0"
-      effort="100000"
-      velocity="1" />
   </joint>
+
   <link
     name="Rear_right">
     <inertial>
@@ -258,6 +249,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="RR"
     type="continuous">
@@ -270,11 +262,6 @@
       link="Rear_right" />
     <axis
       xyz="0 1 0" />
-    <limit
-      lower="0"
-      upper="0"
-      effort="100000"
-      velocity="1" />
   </joint>
 
   <gazebo reference="base_link">
@@ -297,7 +284,6 @@
     <material>Gazebo/Black</material>
   </gazebo>
      
-
   <link name="ultrasonic_link">
     <visual>
       <geometry>
@@ -481,51 +467,53 @@
     </sensor>
   </gazebo>
   
-  <!-- <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
-  </gazebo> -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
 
-  <!-- <transmission name="vel_trans_wheel_fl">
+  <transmission name="fl_effort">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="FL">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="wheel_front_left_motor">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="vel_trans_wheel_fr">
+  <transmission name="fr_effort">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="FR">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="wheel_front_right_motor">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="vel_trans_wheel_rl">
+  <transmission name="rl_effort">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="RL">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="wheel_rear_left_motor">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="vel_trans_wheel_rr">
+  <transmission name="rr_effort">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="RR">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="wheel_rear_right_motor">
-      <hardwareInterface>VelocityJointInterface</hardwareInterface>
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-  </transmission> -->
+  </transmission>
 </robot>

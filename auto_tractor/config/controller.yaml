@@ -1,15 +1,19 @@
-fl_velocity:
-  type: "velocity_controllers/JointVelocityController"
-  joint: "FL"
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
 
-fr_velocity:
-  type: "velocity_controllers/JointVelocityController"
-  joint: "FR"
+fl_effort:
+  type: velocity_controllers/JointVelocityController
+  joint: FL
 
-rl_velocity:
-  type: "velocity_controllers/JointVelocityController"
-  joint: "RL"
+fr_effort:
+  type: velocity_controllers/JointVelocityController
+  joint: FR
 
-rr_velocity:
-  type: "velocity_controllers/JointVelocityController"
-  joint: "RR"
+rl_effort:
+  type: velocity_controllers/JointVelocityController
+  joint: RL
+
+rr_effort:
+  type: velocity_controllers/JointVelocityController
+  joint: RR
