@@ -44,11 +44,12 @@
       </geometry>
     </collision>
   </link>
+
   <link
     name="Front_left">
     <inertial>
       <origin
-        xyz="-0.39773 -0.035852 -0.014369"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="2890" />
@@ -90,20 +91,20 @@
     type="continuous">
     <origin
       xyz="0.92106 -0.77764 -0.29107"
-      rpy="0.05236 0 0" />
+      rpy="-0.05236 0 0" />
     <parent
       link="base_link" />
     <child
       link="Front_left" />
     <axis
-      xyz="-0.0077993 0.99963 -0.026196" />
+      xyz="0 1 0"/>
   </joint>
 
   <link
     name="Front_right">
     <inertial>
       <origin
-        xyz="-0.39773 -0.035852 -0.014369"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="2890" />
@@ -144,21 +145,21 @@
     name="FR"
     type="continuous">
     <origin
-      xyz="0.92111 0.77762 -0.29104"
-      rpy="-0.05236 0 0" />
+      xyz="0.92106 0.77764 -0.29104"
+      rpy="0.05236 0 0" />
     <parent
       link="base_link" />
     <child
       link="Front_right" />
     <axis
-      xyz="-0.0077313 -0.99963 -0.026176" />
+      xyz="0 1 0"/>
   </joint>
 
   <link
     name="Rear_left">
     <inertial>
       <origin
-        xyz="-0.39773 -0.035852 -0.014369"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="2890" />
@@ -213,7 +214,7 @@
     name="Rear_right">
     <inertial>
       <origin
-        xyz="-0.39773 -0.035852 -0.014369"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <mass
         value="2890" />
@@ -264,7 +265,7 @@
       xyz="0 1 0" />
   </joint>
 
-  <gazebo reference="base_link">
+  <!-- <gazebo reference="base_link">
     <material>Gazebo/Blue</material>
   </gazebo>
   
@@ -282,7 +283,7 @@
   
   <gazebo reference="Rear_left">
     <material>Gazebo/Black</material>
-  </gazebo>
+  </gazebo> -->
      
   <link name="ultrasonic_link">
     <visual>
@@ -314,7 +315,7 @@
 
 <!-- Front Left Ultrasonic Sensor -->
 
-  <gazebo reference="ultrasonic_link">
+  <!-- <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_fl">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
@@ -348,12 +349,12 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
 
 <!-- Front Right Ultrasonic Sensor -->
 
-  <gazebo reference="ultrasonic_link">
+  <!-- <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_fr">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
@@ -387,12 +388,12 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
 
 <!-- Middle Left Ultrasonic Sensor -->
 
-  <gazebo reference="ultrasonic_link">
+  <!-- <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_ml">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
@@ -426,12 +427,12 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
 
 <!-- Middle Right Ultrasonic Sensor -->
 
-  <gazebo reference="ultrasonic_link">
+  <!-- <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_mr">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
@@ -465,54 +466,52 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
   
   <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/</robotNamespace>
-    </plugin>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
   </gazebo>
 
-  <transmission name="fl_effort">
+  <transmission name="fl_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="FL">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="wheel_front_left_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <actuator name="fl_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="fr_effort">
+  <transmission name="fr_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="FR">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="wheel_front_right_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <actuator name="fr_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="rl_effort">
+  <transmission name="rl_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="RL">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="wheel_rear_left_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <actuator name="rl_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="rr_effort">
+  <transmission name="rr_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="RR">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
-    <actuator name="wheel_rear_right_motor">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <actuator name="rr_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>

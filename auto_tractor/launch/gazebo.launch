@@ -1,6 +1,5 @@
 <launch>
-  <include
-    file="$(find gazebo_ros)/launch/empty_world.launch" />
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
 
   <param name="robot_description" textfile="$(find auto_tractor)/urdf/auto_tractor.urdf"/>
 

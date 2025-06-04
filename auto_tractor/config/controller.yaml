@@ -3,17 +3,21 @@ joint_state_controller:
   publish_rate: 50
 
 fl_effort:
-  type: velocity_controllers/JointVelocityController
+  type: effort_controllers/JointVelocityController
   joint: FL
+  pid: {p: 100.0, i: 0.01, d: 10.0}
 
 fr_effort:
-  type: velocity_controllers/JointVelocityController
+  type: effort_controllers/JointVelocityController
   joint: FR
+  pid: {p: 100.0, i: 0.01, d: 10.0}
 
 rl_effort:
-  type: velocity_controllers/JointVelocityController
+  type: effort_controllers/JointVelocityController
   joint: RL
+  pid: {p: 100.0, i: 0.01, d: 10.0}
 
 rr_effort:
-  type: velocity_controllers/JointVelocityController
+  type: effort_controllers/JointVelocityController
   joint: RR
+  pid: {p: 100.0, i: 0.01, d: 10.0}

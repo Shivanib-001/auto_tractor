@@ -14,10 +14,10 @@ def main():
     rate = rospy.Rate(10)
 
     while not rospy.is_shutdown():
-        fl = 10000.0
-        fr = 10000.0
-        rl = 10000.0
-        rr = 10000.0
+        fl = 5.0
+        fr = 5.0
+        rl = 5.0
+        rr = 5.0
 
         # rospy.loginfo(f"Velocities: FL={fl}, FR={fr}, RL={rl}, RR={rr}")
         pub_fl.publish(Float64(fl))
