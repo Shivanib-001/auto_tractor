@@ -11,14 +11,14 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <mass
-        value="2890" />
+        value="578" />
       <inertia
-        ixx="728.156306539282"
-        ixy="-356.818218316549"
-        ixz="134.309415252555"
-        iyy="3882.4531576663"
-        iyz="27.8922747620931"
-        izz="4051.57184651127" />
+        ixx="145.63"
+        ixy="-71.36"
+        ixz="26.86"
+        iyy="776.5"
+        iyz="5.58"
+        izz="810.32" />
     </inertial>
     <visual>
       <origin
@@ -45,6 +45,8 @@
     </collision>
   </link>
 
+<!-- Front Left Wheel -->
+
   <link
     name="Front_left">
     <inertial>
@@ -52,14 +54,14 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <mass
-        value="2890" />
+        value="578" />
       <inertia
-        ixx="728.16"
-        ixy="-356.82"
-        ixz="134.31"
-        iyy="3882.5"
-        iyz="27.892"
-        izz="4051.6" />
+        ixx="145.63"
+        ixy="-71.36"
+        ixz="26.86"
+        iyy="776.5"
+        iyz="5.58"
+        izz="810.32" />
     </inertial>
     <visual>
       <origin
@@ -72,7 +74,7 @@
       <material
         name="">
         <color
-          rgba="0.4 0.4 0.4 1" />
+          rgba="0 0 0 1" />
       </material>
     </visual>
     <collision>
@@ -90,15 +92,17 @@
     name="FL"
     type="continuous">
     <origin
-      xyz="0.92106 -0.77764 -0.29107"
+      xyz="0 0 0"
       rpy="-0.05236 0 0" />
     <parent
-      link="base_link" />
+      link="front_left_steering_link" />
     <child
       link="Front_left" />
     <axis
       xyz="0 1 0"/>
   </joint>
+
+<!-- Front Right Wheel -->
 
   <link
     name="Front_right">
@@ -107,14 +111,14 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <mass
-        value="2890" />
+        value="578" />
       <inertia
-        ixx="728.16"
-        ixy="-356.82"
-        ixz="134.31"
-        iyy="3882.5"
-        iyz="27.892"
-        izz="4051.6" />
+        ixx="145.63"
+        ixy="-71.36"
+        ixz="26.86"
+        iyy="776.5"
+        iyz="5.58"
+        izz="810.32" />
     </inertial>
     <visual>
       <origin
@@ -145,16 +149,17 @@
     name="FR"
     type="continuous">
     <origin
-      xyz="0.92106 0.77764 -0.29104"
+      xyz="0 0 0"
       rpy="0.05236 0 0" />
     <parent
-      link="base_link" />
+      link="front_right_steering_link" />
     <child
       link="Front_right" />
     <axis
       xyz="0 1 0"/>
   </joint>
 
+  <!-- Rear Left Wheel -->
   <link
     name="Rear_left">
     <inertial>
@@ -162,14 +167,14 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <mass
-        value="2890" />
+        value="578" />
       <inertia
-        ixx="728.16"
-        ixy="-356.82"
-        ixz="134.31"
-        iyy="3882.5"
-        iyz="27.892"
-        izz="4051.6" />
+        ixx="145.63"
+        ixy="-71.36"
+        ixz="26.86"
+        iyy="776.5"
+        iyz="5.58"
+        izz="810.32" />
     </inertial>
     <visual>
       <origin
@@ -210,6 +215,9 @@
       xyz="0 1 0" />
   </joint>
 
+
+<!-- Rear Right Wheel -->
+
   <link
     name="Rear_right">
     <inertial>
@@ -217,14 +225,14 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <mass
-        value="2890" />
+        value="578" />
       <inertia
-        ixx="728.16"
-        ixy="-356.82"
-        ixz="134.31"
-        iyy="3882.5"
-        iyz="27.892"
-        izz="4051.6" />
+        ixx="145.63"
+        ixy="-71.36"
+        ixz="26.86"
+        iyy="776.5"
+        iyz="5.58"
+        izz="810.32" />
     </inertial>
     <visual>
       <origin
@@ -264,6 +272,67 @@
     <axis
       xyz="0 1 0" />
   </joint>
+
+
+  <!--Left Steering-->
+  <joint name="front_left_steering_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="front_left_steering_link"/>
+    <origin rpy="0 0 0" xyz="0.92106 -0.77764 -0.29107"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10000" lower="-0.6" upper="0.6" velocity="1000"/>
+  </joint>
+
+  <link name="front_left_steering_link">
+    <parent link="base_link"/>
+    <collision>
+      <origin rpy="1.57079634179 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="1.57079634179 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="50.0"/>
+      <inertia ixx="0.25" ixy="0.000000" ixz="0.000000" iyy="0.135416666667" iyz="0.000000" izz="0.135416666667"/>
+    </inertial>
+  </link>
+
+  <!--Right Steering-->
+  <joint name="front_right_steering_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="front_right_steering_link"/>
+    <origin rpy="0 0 0" xyz="0.92106 0.77764 -0.29107"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10000" lower="-0.6" upper="0.6" velocity="1000"/>
+  </joint>
+  
+  <link name="front_right_steering_link">
+    <collision>
+      <origin rpy="1.57079634179 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin rpy="1.57079634179 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="50.0"/>
+      <inertia ixx="0.25" ixy="0.000000" ixz="0.000000" iyy="0.135416666667" iyz="0.000000" izz="0.135416666667"/>
+    </inertial>
+  </link>
+
 
   <!-- <gazebo reference="base_link">
     <material>Gazebo/Blue</material>
@@ -472,27 +541,6 @@
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
   </gazebo>
 
-  <transmission name="fl_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FL">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="fl_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
-
-  <transmission name="fr_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="FR">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="fr_motor">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-  </transmission>
 
   <transmission name="rl_trans">
     <type>transmission_interface/SimpleTransmission</type>
@@ -512,6 +560,28 @@
     </joint>
     <actuator name="rr_motor">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="left_steering">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_left_steering_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="eps_left">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="right_steering">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="front_right_steering_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="eps_right">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>

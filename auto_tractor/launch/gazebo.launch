@@ -24,7 +24,7 @@
 
   <rosparam file="$(find auto_tractor)/config/controller.yaml" command="load"/>
   
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller fl_effort fr_effort rl_effort rr_effort"/>
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller rl_velocity rr_velocity left_steering_position right_steering_position"/>
   
   <node name="ultrasonic_sync" pkg="auto_tractor" type="wheel_topics.py" output="screen" />
 </launch>

@@ -2,22 +2,22 @@ joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
 
-fl_effort:
-  type: effort_controllers/JointVelocityController
-  joint: FL
-  pid: {p: 100.0, i: 0.01, d: 10.0}
-
-fr_effort:
-  type: effort_controllers/JointVelocityController
-  joint: FR
-  pid: {p: 100.0, i: 0.01, d: 10.0}
-
-rl_effort:
+rl_velocity:
   type: effort_controllers/JointVelocityController
   joint: RL
   pid: {p: 100.0, i: 0.01, d: 10.0}
 
-rr_effort:
+rr_velocity:
   type: effort_controllers/JointVelocityController
   joint: RR
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+left_steering_position:
+  type: position_controllers/JointPositionController
+  joint: front_left_steering_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+right_steering_position:
+  type: position_controllers/JointPositionController
+  joint: front_right_steering_joint
   pid: {p: 100.0, i: 0.01, d: 10.0}
