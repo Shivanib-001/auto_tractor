@@ -1,15 +1,17 @@
 # auto_tractor
 
-## Tractor with ackermann steering and GUI control
+## Tractor with Ackermann Steering and GUI Control
 
 ### Dependencies
+Check or install the following dependencies:
 ```
-sudo apt install 
+sudo apt install ros-noetic-effort-controllers
+sudo apt install ros-noetic-rqt-robot-steering
 ```
 
 ### Steps to launch the package
 1. Clone this repo in ```catkin_ws/src``` directory
-2. Now in catkin_ws directory use the following commands:
+2. In catkin_ws directory use the following commands:
    ```
    catkin_make
    source devel/setup.bash
