@@ -3,7 +3,7 @@
 ## Tractor with ackermann steering and GUI control
 
 ### Steps to launch the package
-1. Clone this repo in catkin_ws/src directory
+1. Clone this repo in ```catkin_ws/src``` directory
 2. Now in catkin_ws directory use the following commands:
    ```
    catkin_make
