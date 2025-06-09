@@ -9,8 +9,8 @@ rl_vel = 40
 rr_vel = 40
 
 # Steering angles in deg
-left_steer = 0
-right_steer = 0
+left_steer = 16
+right_steer = 16
 
 def main():
     rospy.init_node('wheel_velocity_commander', anonymous=True)
@@ -26,8 +26,8 @@ def main():
     while not rospy.is_shutdown():
         rl = rl_vel*0.2777778
         rr = rr_vel*0.2777778
-        ls = 0
-        rs = 0
+        ls = math.radians(left_steer)
+        rs = math.radians(right_steer)
 
         # rospy.loginfo(f"Velocities: FL={fl}, FR={fr}, RL={rl}, RR={rr}")
         pub_rl.publish(Float64(rl))
