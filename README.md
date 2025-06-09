@@ -1,6 +1,4 @@
-# auto_tractor
-
-## Tractor with Ackermann Steering and GUI Control
+# Tractor with Ackermann Steering and GUI Control
 
 ### Dependencies
 Check or install the following dependencies:
