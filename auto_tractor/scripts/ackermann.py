@@ -11,11 +11,11 @@ from std_msgs.msg import String, Float64
 from geometry_msgs.msg import Twist, Pose
 import sys, getopt, math
 
-class cmdvel2gazebo:
+class ackermann:
 
     def __init__(self,ns):
         self.ns = ns
-        rospy.init_node('cmdvel2gazebo', anonymous=True)
+        rospy.init_node('ackermann', anonymous=True)
 
         # the format(ns) looks for the namespace in the ros parameter server, I guess
         rospy.Subscriber('cmd_vel'.format(ns), Twist, self.callback)
@@ -28,19 +28,11 @@ class cmdvel2gazebo:
         self.x = 0
         self.z = 0
 
-        # TODO: get wheelbase and treadwidth from SDF or
-        #       params database instead of hardcoded here
-
-        # car Wheelbase (in m)
-        # simulator value matches the 'real' car
+        # Tractor Wheelbase (in m)
+        # simulator value matches the 'real' Tractor
         self.L = 2.264
 
-        # car Tread
-        # this value is from the car's manual
-        # self.T=1.55
-
-        # car Tread
-        # this value is from the simulator
+        # Tractor Track Width
         self.T=1.550
 
         # how many seconds delay for the dead man's switch
@@ -73,11 +65,6 @@ class cmdvel2gazebo:
         # reset the velocity, so that if we don't hear new
         # ones for the next timestep that we time out; note
         # that the tire angle will not change
-        # NOTE: we only set self.x to be 0 after 200ms of timeout
-        #if rospy.Time.now() - self.lastMsg > self.timeout:
-           # rospy.loginfo(rospy.get_caller_id() + " timed out waiting for new input, setting velocity to 0.")
-            #self.x = 0
-            #return
 
         if self.z != 0:
             T=self.T
@@ -121,13 +108,13 @@ class cmdvel2gazebo:
             self.pub_steerL.publish(msgSteer)
             self.pub_steerR.publish(msgSteer)
 def usage():
-    print('cmdvel2gazebo -n catvehicle')
+    print('ackermann -n catvehicle')
 
 
 def main(argv):
     # we eventually get the ns (namespace) from the ROS parameter server for this node
     ns=''
-    node = cmdvel2gazebo(ns)
+    node = ackermann(ns)
     rate = rospy.Rate(100) # run at 100Hz
     while not rospy.is_shutdown():
         node.publish()
