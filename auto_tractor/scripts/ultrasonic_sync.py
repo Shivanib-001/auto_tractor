@@ -9,13 +9,19 @@ import math
 def obj_pos(a, b):
     '''a = Distance of object from Sensor 1
     b = Distance of object from Sensor 2'''
-    i = (a**2-b**2+(0.52**2))/(2*0.52)
-    j=math.sqrt(a**2-i**2)
-    x1,y1=1.8,-0.26 #Coordinates of Sensor
-    x=x1+j
-    y=y1+i
-    print(i,j)
+    if (a and b == 2.5):
+        x = 0
+        y = 0
+    else:
+        i =(a**2-b**2+(0.52**2))/(2*0.52)
+        j=math.sqrt(a**2-i**2)
+        x1,y1=1.8,-0.26 #Coordinates of Sensor
+        x=x1+j
+        y=y1+i
+
+    # print(i,j)
     return x,y
+
 
 class UltrasonicGUI:
     def __init__(self, root):
@@ -53,7 +59,6 @@ class UltrasonicGUI:
         self.fl_range = data.range
         self.fl_label.config(text=f"Front Left: {data.range:.4f} m")
         self.obj_pos_plot()
-        # print(self.fl_range)
     
     def callback_fr(self, data):
         self.fr_range = data.range
@@ -66,12 +71,10 @@ class UltrasonicGUI:
     def callback_mr(self, data):
         self.mr_label.config(text=f"Middle Right: {data.range:.4f} m")
 
-
     def obj_pos_plot(self):
         if self.fl_range is not None and self.fr_range is not None:
             x,y = obj_pos(self.fl_range, self.fr_range)
             self.pos_label.config(text=f"X: {x:.4f}, Y: {y:.4f}")
-            print(x,y)
 
     def update_gui(self):
         if not rospy.is_shutdown():

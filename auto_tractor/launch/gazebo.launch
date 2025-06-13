@@ -22,12 +22,15 @@
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
 
+  <!-- Adding Controllers -->
   <rosparam file="$(find auto_tractor)/config/controller.yaml" command="load"/>
   
+  <!-- Spawning Controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller rl_velocity rr_velocity left_steering_position right_steering_position"/>
   
+  <!-- Launching Python Script -->
   <node name="ackermann" pkg="auto_tractor" type="ackermann.py" output="screen" />
-
   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering" output="screen" />
+  <node name="ultrasonic" pkg="auto_tractor" type="ultrasonic_sync.py" output="screen" />
   
 </launch>

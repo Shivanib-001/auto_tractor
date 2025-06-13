@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="auto_tractor">
+
+<!-- Base Link -->
+
   <link
     name="base_link">
     <inertial>
@@ -44,6 +44,7 @@
       </geometry>
     </collision>
   </link>
+
 
 <!-- Front Left Wheel -->
 
@@ -102,6 +103,7 @@
       xyz="0 1 0"/>
   </joint>
 
+
 <!-- Front Right Wheel -->
 
   <link
@@ -159,7 +161,9 @@
       xyz="0 1 0"/>
   </joint>
 
+
   <!-- Rear Left Wheel -->
+
   <link
     name="Rear_left">
     <inertial>
@@ -275,6 +279,7 @@
 
 
   <!--Left Steering-->
+
   <joint name="front_left_steering_joint" type="revolute">
     <parent link="base_link"/>
     <child link="front_left_steering_link"/>
@@ -304,7 +309,9 @@
     </inertial>
   </link>
 
+
   <!--Right Steering-->
+
   <joint name="front_right_steering_joint" type="revolute">
     <parent link="base_link"/>
     <child link="front_right_steering_link"/>
@@ -334,26 +341,8 @@
   </link>
 
 
-  <!-- <gazebo reference="base_link">
-    <material>Gazebo/Blue</material>
-  </gazebo>
-  
-  <gazebo reference="Front_left">
-    <material>Gazebo/Black</material>
-  </gazebo>
-  
-  <gazebo reference="Front_right">
-    <material>Gazebo/Black</material>
-  </gazebo>
+<!-- Ultrasonic Sensor Link -->     
 
-  <gazebo reference="Rear_right">
-    <material>Gazebo/Black</material>
-  </gazebo>
-  
-  <gazebo reference="Rear_left">
-    <material>Gazebo/Black</material>
-  </gazebo> -->
-     
   <link name="ultrasonic_link">
     <visual>
       <geometry>
@@ -384,19 +373,19 @@
 
 <!-- Front Left Ultrasonic Sensor -->
 
-  <!-- <gazebo reference="ultrasonic_link">
+  <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_fl">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>1.386 -0.15525 0.62525 0 0 -0.65079</pose>
+      <pose>1.386 -0.15525 0.62525 0 -0.01 -0.65079</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
           <horizontal>
             <samples>70</samples>
             <resolution>1</resolution>
-            <min_angle>-1.22173</min_angle>
-            <max_angle>1.22173</max_angle>
+            <min_angle>-1.00173</min_angle>
+            <max_angle>1.00173</max_angle>
           </horizontal>
           <vertical>
             <samples>35</samples>
@@ -418,24 +407,24 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo> -->
+  </gazebo>
 
 
 <!-- Front Right Ultrasonic Sensor -->
 
-  <!-- <gazebo reference="ultrasonic_link">
+  <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_fr">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>1.386 0.15525 0.62525 0 0 0.65079</pose>
+      <pose>1.386 0.15525 0.62525 0 -0.01 0.65079</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
           <horizontal>
             <samples>70</samples>
             <resolution>1</resolution>
-            <min_angle>-1.22173</min_angle>
-            <max_angle>1.22173</max_angle>
+            <min_angle>-1.00173</min_angle>
+            <max_angle>1.00173</max_angle>
           </horizontal>
           <vertical>
             <samples>35</samples>
@@ -457,16 +446,16 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo> -->
+  </gazebo>
 
 
 <!-- Middle Left Ultrasonic Sensor -->
 
-  <!-- <gazebo reference="ultrasonic_link">
+  <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_ml">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>0.57286 -0.3473 0.638 0 0 -1.5708</pose>
+      <pose>0.57886 -0.3403 0.638 0 -0.18 -1.3708</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
@@ -496,16 +485,16 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo> -->
+  </gazebo>
 
 
 <!-- Middle Right Ultrasonic Sensor -->
 
-  <!-- <gazebo reference="ultrasonic_link">
+  <gazebo reference="ultrasonic_link">
     <sensor type="ray" name="ultrasonic_mr">
       <always_on>true</always_on>
       <update_rate>20</update_rate>
-      <pose>0.57286 0.3473 0.638 0 0 1.5708</pose>
+      <pose>0.52286 0.3403 0.638 0 -0.182 1.3708</pose>
       <visualize>true</visualize>
       <ray>
         <scan>
@@ -535,13 +524,17 @@
         <frameId>ultrasonic_link</frameId>
       </plugin>
     </sensor>
-  </gazebo> -->
+  </gazebo>
   
+
+
+<!-- ROS Control Plugin -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/>
   </gazebo>
 
 
+<!-- Transmission for Rear Wheels -->
   <transmission name="rl_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="RL">
@@ -564,6 +557,8 @@
     </actuator>
   </transmission>
 
+
+<!-- Transmission for Steerings -->
   <transmission name="left_steering">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="front_left_steering_joint">
